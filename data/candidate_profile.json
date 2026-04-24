@@ -1,0 +1,22 @@
+{
+  "name": "Alex Candidate",
+  "email": "alex.candidate@example.com",
+  "skills": [
+    "Python",
+    "FastAPI",
+    "SQL",
+    "Docker",
+    "Playwright",
+    "AWS"
+  ],
+  "experience": [
+    "Built distributed backend services",
+    "Implemented web scraping and automation workflows",
+    "Shipped CI/CD pipelines"
+  ],
+  "projects": [
+    "Job intelligence crawler",
+    "Real-time notification service"
+  ],
+  "cv_text": "Senior Python engineer with experience in backend systems, scraping pipelines, cloud deployment, and automation."
+}
