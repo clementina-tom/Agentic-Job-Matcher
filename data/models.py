@@ -1,6 +1,6 @@
 """Data models used across the system."""
 
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field, asdict
 from typing import Any
 
 
@@ -38,7 +38,6 @@ class JobRecord:
     skills: list[str]
     application_method: dict[str, str]
     hiring_signal: HiringSignal
-    source_type: str = "unknown"
 
     def to_dict(self) -> dict[str, Any]:
         data = asdict(self)
