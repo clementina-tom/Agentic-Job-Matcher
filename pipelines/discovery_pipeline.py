@@ -34,7 +34,7 @@ def _extract_result_links(search_page_html: str) -> list[str]:
     return links
 
 
-def _collect_urls_from_search(queries: list[str], max_links_per_query: int = 6) -> list[str]:
+def _collect_urls_from_search(queries: list[str], max_links_per_query: int = 8) -> list[str]:
     all_urls: list[str] = []
     for query in queries:
         for surl in search_engine_urls(query, max_results=1):

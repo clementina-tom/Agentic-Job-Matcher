@@ -8,3 +8,4 @@ __pycache__/
 data/logs/*.log
 data/cache/
 data/state_snapshot.json
+data/*.log

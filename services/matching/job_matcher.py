@@ -54,7 +54,9 @@ class JobMatcher:
         profile_text = " ".join(profile.skills + profile.experience + profile.projects + [profile.cv_text])
         job_text = f"{job.job_title}\n{job.description}\n{' '.join(job.skills)}"
 
-        similarity = self._semantic_similarity(profile_text, job_text)
+        profile_emb = self.model.encode(profile_text, convert_to_tensor=True)
+        job_emb = self.model.encode(job_text, convert_to_tensor=True)
+        similarity = float(util.cos_sim(profile_emb, job_emb).item())
 
         candidate_skills = {skill.lower() for skill in profile.skills}
         job_skills = {skill.lower() for skill in job.skills}
