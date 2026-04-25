@@ -1,4 +1,11 @@
 __pycache__/
 *.py[cod]
 .venv/
+.pytest_cache/
+.mypy_cache/
+
+# runtime artifacts
+data/logs/*.log
+data/cache/
+data/state_snapshot.json
 data/*.log

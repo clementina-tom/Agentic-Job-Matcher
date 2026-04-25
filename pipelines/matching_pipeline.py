@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 
+from data.models import HiringSignal, JobRecord
 from services.matching.job_matcher import JobMatcher
 from services.matching.profile_loader import load_candidate_profile
 from utils.storage import read_json, write_json
-from data.models import JobRecord, HiringSignal
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +28,7 @@ def _job_from_dict(payload: dict) -> JobRecord:
         skills=payload.get("skills", []),
         application_method=payload.get("application_method", {}),
         hiring_signal=signal,
+        source_type=payload.get("source_type", "unknown"),
     )
 
 
