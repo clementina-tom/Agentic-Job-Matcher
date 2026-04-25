@@ -60,7 +60,7 @@ def application_pipeline() -> list[dict]:
                 "job_title": job.job_title,
                 "channel": channel,
                 "applied": applied,
-            }
+q            }
         )
 
     write_json("data/application_results.json", results)
