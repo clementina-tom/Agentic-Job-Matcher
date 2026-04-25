@@ -32,6 +32,12 @@ def _job_from_dict(payload: dict) -> JobRecord:
 
 def matching_pipeline() -> list[dict]:
     """Load profile and jobs, score them, and filter for applications."""
+    if not Path("data/discovered_jobs.json").exists():
+        logger.warning("No discovered jobs artifact found; skipping matching")
+        write_json("data/match_results.json", [])
+        write_json("data/selected_jobs.json", [])
+        return []
+
     profile = load_candidate_profile()
     raw_jobs = read_json("data/discovered_jobs.json")
     jobs = [_job_from_dict(payload) for payload in raw_jobs]
