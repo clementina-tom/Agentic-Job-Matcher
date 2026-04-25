@@ -55,11 +55,14 @@
         </article>`;
 
       const run = async () => {
-        const [jobs, matches, apps] = await Promise.all([
-          loadJson('../data/discovered_jobs.json'),
-          loadJson('../data/match_results.json'),
-          loadJson('../data/application_results.json')
+        const [jobsResp, matchesResp, appsResp] = await Promise.all([
+          loadJson('/api/discovered_jobs'),
+          loadJson('/api/match_results'),
+          loadJson('/api/application_results')
         ]);
+        const jobs = jobsResp.items || [];
+        const matches = matchesResp.items || [];
+        const apps = appsResp.items || [];
 
         document.getElementById('metrics').innerHTML = [
           metricCard('Discovered Jobs', jobs.length),

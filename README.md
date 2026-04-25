@@ -85,6 +85,7 @@ python -m app.main match
 python -m app.main apply
 python -m app.main daily
 python -m app.main status
+python -m app.main serve --port 8000
 ```
 
 ## UI dashboard
@@ -94,4 +95,12 @@ python -m app.main status
 - `data/match_results.json`
 - `data/application_results.json`
 
-Serve the repo root with a static web server (e.g., `python -m http.server`) and open `ui/index.html`.
+Start API + UI with:
+
+```bash
+python -m app.main serve --port 8000
+```
+
+Then open:
+- `http://localhost:8000/dashboard`
+- `http://localhost:8000/api/metrics`

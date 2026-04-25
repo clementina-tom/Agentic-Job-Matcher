@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import json
 import sqlite3
 from pathlib import Path
 from typing import Any
 
 import typer
+import uvicorn
 
 from agents.supervisor import run_graph
 from core.state import AgentState, CandidateProfileState
@@ -109,6 +109,12 @@ def status(db_path: str = "data/applications.db") -> None:
     typer.echo("Application status summary:")
     for status_name, count in rows:
         typer.echo(f"- {status_name}: {count}")
+
+
+@app.command()
+def serve(host: str = "0.0.0.0", port: int = 8000, reload: bool = False) -> None:
+    """Start dashboard API server and static UI."""
+    uvicorn.run("app.server:app", host=host, port=port, reload=reload)
 
 
 if __name__ == "__main__":
